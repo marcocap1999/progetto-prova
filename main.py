@@ -1,4 +1,5 @@
 import random
+import csv
 
 # List of possible choices
 choices = ["rock", "paper", "scissors"]
