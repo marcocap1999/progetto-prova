@@ -14,6 +14,12 @@ def determine_winner(user_choice, computer_choice):
     else:
         return "lose"
 
+# Function to save the result to a CSV file
+def save_result(result):
+    with open("results.csv", mode="a", newline="") as file:
+        writer = csv.writer(file)
+        writer.writerow([result])
+
 def main():
     print("Welcome to Rock-Paper-Scissors!")
     print("Rules: Rock beats scissors, scissors beat paper, and paper beats rock.")
@@ -47,6 +53,7 @@ def main():
         
         # Compare the choices and update the result counters
         result = determine_winner(user_choice, computer_choice)
+        save_result(result) 
         
         if result == "win":
             wins += 1
@@ -76,6 +83,6 @@ def main():
 if __name__ == "__main__":
     main()
 
-# scrittura veccio codice
+
        
 
