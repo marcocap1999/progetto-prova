@@ -1,4 +1,5 @@
 import random
+import csv
 
 # List of possible choices
 choices = ["rock", "paper", "scissors"]
@@ -13,6 +14,12 @@ def determine_winner(user_choice, computer_choice):
         return "win"
     else:
         return "lose"
+
+# Function to save the result to a CSV file
+def save_result(result):
+    with open("results.csv", mode="a", newline="") as file:
+        writer = csv.writer(file)
+        writer.writerow([result])
 
 def main():
     print("Welcome to Rock-Paper-Scissors!")
@@ -47,6 +54,7 @@ def main():
         
         # Compare the choices and update the result counters
         result = determine_winner(user_choice, computer_choice)
+        save_result(result) 
         
         if result == "win":
             wins += 1
@@ -75,5 +83,7 @@ def main():
 # Run the game
 if __name__ == "__main__":
     main()
+
+
        
 
